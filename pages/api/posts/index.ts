@@ -28,10 +28,18 @@ export default async function handle(
       res.status(200).json({ message: 'Work in progress!' });
       break;
     }
-    default: { // GET Method
-      const posts = await prisma.post.findMany();
-      res.json(posts);
-      break;
+    case 'GET': {
+        const posts = await prisma.post.findMany({
+            include: {
+                author: true
+            }
+        });
+        res.json(posts);
+        break;
+    }
+    default: { // Any other Method
+        res.status(405).json({ message: 'Method not allowed' });
+        break;
     }
   }
 }
