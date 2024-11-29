@@ -2,45 +2,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-After cloning this repo, some actions may be taken
-
-### .env settings
-
-Copy `.env.example` file in a new `.env` file. Credentiais for docker-compose already exists in `.env.example`
+First, run the development server:
 
 ```bash
-$ cp .env.example .env
-```
-
-### Docker compose PostgreSQL
-
-Bootup Database with PostgreSQL
-
-```bash
-$ docker compose up -d
-```
-
-### Install Node Deps
-
-```bash
-$ npm install
-```
-
-### Run Prisma (migrations and seeder)
-
-If database is up running, we can run migrations and seeder for prisma
-
-```bash
-$ npm run prisma:deploy
-$ npm run prisma:seed
-```
-
-### Bootup NextJs App
-
-run the development server:
-
-```bash
-$ npm run dev
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
