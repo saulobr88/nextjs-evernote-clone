@@ -19,6 +19,19 @@ export default function NavBar() {
             </Link>
             <Link
               className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+              href="/posts/create"
+            >
+              <Image
+                aria-hidden
+                src="/create-svgrepo-com.svg"
+                alt="Create icon"
+                width={16}
+                height={16}
+              />
+              Create
+            </Link>
+            <Link
+              className="flex items-center gap-2 hover:underline hover:underline-offset-4"
               href="/users"
             >
               <Image
