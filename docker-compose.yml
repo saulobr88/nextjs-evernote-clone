@@ -3,17 +3,20 @@ services:
     image: postgres:16-alpine
     container_name: next-postgres-db
     restart: always
+    env_file:
+      - path: ./.env
+        required: true
     environment:
-      - POSTGRES_DB=my_database
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=${DB_NAME:?err}
+      - POSTGRES_USER=${DB_USER:?err}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:?err}
       - TIME_ZONE="America/Recife"
     logging:
       options:
         max-size: 10m
         max-file: "3"
     ports:
-      - "5438:5432"
+      - "${DB_PORT}:5432"
     volumes:
       - "./.data/postgres:/var/lib/postgresql/data"
       # copy the sql script to create tables
